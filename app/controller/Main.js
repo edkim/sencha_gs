@@ -3,7 +3,7 @@ Ext.define('GS.controller.Main', {
     
     config: {
         refs: {
-            
+            blog: 'blog'
         },
         control: {
             'blog list': {
@@ -13,7 +13,13 @@ Ext.define('GS.controller.Main', {
     },
 
     showPost: function(list, index, element, record) {
-        console.log(record.get('title'));
+        list.getBlog().push({
+            xtype: 'panel',
+            title: record.get('title'),
+            html: record.get('content'),
+            scrollable: true,
+            styleHtmlContent: true
+        });
     }
     
 });
